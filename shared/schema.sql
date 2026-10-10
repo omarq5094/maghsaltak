@@ -50,6 +50,12 @@ CREATE TABLE orders (
   created_at TIMESTAMP NOT NULL,
   UNIQUE (id, source),
   CHECK (
+    source <> 'customer'
+    OR (pickup_address IS NOT NULL
+      AND TRIM(pickup_address) <> ''
+      AND pickup_at IS NOT NULL)
+  ),
+  CHECK (
     (receipt_method = 'branch_pickup'
       AND delivery_address IS NULL
       AND delivery_at IS NULL)
