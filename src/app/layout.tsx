@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 
+import "./globals.css";
+
 export const metadata: Metadata = {
   title: "مغسلتك",
-  description: "نظام مغسلتك الموحد",
+  description: "خدمة استلام والعناية بالملابس من المنزل",
 };
 
 export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
